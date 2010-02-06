@@ -1,0 +1,110 @@
+=head2 Sat Feb  6 14:28:19 2010: C<Module> L<local::lib|local::lib>
+
+=over 4
+
+=item *
+
+C<installed into: /home/kaz/mywork/dev/work/mt-migration/local-lib-1.004009/../extlib/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.004009>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sat Feb  6 14:40:27 2010: C<Module> L<Compress::Raw::Bzip2|Compress::Raw::Bzip2>
+
+=over 4
+
+=item *
+
+C<installed into: /home/kaz/mywork/dev/work/mt-migration/extlib/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.024>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sat Feb  6 14:41:27 2010: C<Module> L<Compress::Raw::Zlib|Compress::Raw::Zlib>
+
+=over 4
+
+=item *
+
+C<installed into: /home/kaz/mywork/dev/work/mt-migration/extlib/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.024>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sat Feb  6 14:45:45 2010: C<Module> L<IO::Compress|IO::Compress>
+
+=over 4
+
+=item *
+
+C<installed into: /home/kaz/mywork/dev/work/mt-migration/extlib/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.024>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Sat Feb  6 15:53:32 2010: C<Module> L<Archive::Tar|Archive::Tar>
+
+=over 4
+
+=item *
+
+C<installed into: /home/kaz/mywork/dev/work/mt-migration/extlib/lib/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.56>
+
+=item *
+
+C<EXE_FILES: bin/ptar bin/ptardiff>
+
+=back
+
