@@ -22,6 +22,7 @@ sub migrate {
     #    die "unzip failed: $UnzipError";
     my $new_dir = catdir($base_path, "mt");
     mkdir $new_dir or die "can't make dir: $new_dir";
+    $class->chown("kaz", "kaz", $new_dir);
     my $tar = Archive::Tar->new(catdir($base_path, $new_mt));
     $tar->setcwd($new_dir);
     $tar->extract;
@@ -29,7 +30,11 @@ sub migrate {
     my($dir, $version, $extension) = split '\.', $new_mt;
     warn catdir($new_dir, $dir.".".$version) .":". catdir($new_dir, "mt");
     move catdir($new_dir, $dir.".".$version), catdir($new_dir, "mt");
-
+    move catdir($new_dir, "mt", $static), catdir($new_dir, $static);
+    mkdir catdir($new_dir, "blog") or die "can't make dir: " . catdir($new_dir, "blog");
+    $class->chown("www-data", "www-data", catdir($new_dir, $static));
+    $class->chown("www-data", "www-data", catdir($new_dir, "blog"));
+    $class->chown("www-data", "www-data", catdir($new_dir, "mt"));
 }
 
 sub backup {
@@ -37,6 +42,7 @@ sub backup {
     my ($base_path, $backup_dir, $user, $password, $database) = @_;
 
     mkdir $backup_dir or die "can't make dir: $backup_dir";
+    $class->chown("kaz", "kaz", $backup_dir);
     $class->cp(catdir($base_path, $static), $backup_dir);
     $class->cp(catdir($base_path, $mt), $backup_dir);
     $class->cp(catdir($base_path, $blog), $backup_dir);
@@ -58,6 +64,13 @@ sub mysqldump {
     system("mysqldump -a --skip-lock-tables --user=$user --password=$password $database > " .
         catdir($backup_dir, "backup.mysql")) == 0
             or die "mysqldump failed: $?";
+}
+
+sub chown {
+    my $class = shift;
+    my ($u, $g, $path) = @_;
+    system("chown -R $u:$g $path") == 0
+        or die "chown filed: $?";
 }
 
 1;
